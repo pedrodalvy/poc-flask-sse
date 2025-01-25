@@ -49,24 +49,24 @@ The application exposes a single endpoint that streams the current date and time
 You can validate the SSE stream using `curl` in your terminal:
 
 ```bash
-curl -N http://localhost:5000
+curl -N http://localhost:5000/sse/current-time
 ```
 
 **Expected Output:**
 
-| Output                | Description                                      |
-|:----------------------|:-------------------------------------------------|
-| `2023-10-27 10:30:00` | The current date and time, updated every second. |
-| `2023-10-27 10:30:01` | ...                                              |
-| `2023-10-27 10:30:02` | ...                                              |
+| Output                      | Description                                      |
+|:----------------------------|:-------------------------------------------------|
+| `data: 2023-10-27 10:30:00` | The current date and time, updated every second. |
+| `data: 2023-10-27 10:30:01` | ...                                              |
+| `data: 2023-10-27 10:30:02` | ...                                              |
 
 The `-N` flag ensures that `curl` doesn't buffer the output, allowing you to see each update as it is received.
 
 ### Endpoint Details
 
-| Endpoint | Method | Description                                                                   |
-|:---------|:-------|:------------------------------------------------------------------------------|
-| `/`      | GET    | Streams the current date and time, updating the content every second via SSE. |
+| Endpoint            | Method | Description                                                                   |
+|:--------------------|:-------|:------------------------------------------------------------------------------|
+| `/sse/current-time` | GET    | Streams the current date and time, updating the content every second via SSE. |
 
 ## 🛠️ Additional Notes
 
